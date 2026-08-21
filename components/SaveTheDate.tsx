@@ -1,0 +1,299 @@
+import Image from "next/image";
+
+export default function SaveTheDate() {
+  return (
+    <section
+      id="fecha"
+      className="relative min-h-screen overflow-hidden bg-background px-3 py-12 md:px-8 md:py-24"
+    >
+      {/* =========================================
+    DECORACIÓN SUPERIOR
+========================================= */}
+
+      <Image
+        src="/deco10.png"
+        alt=""
+        width={120}
+        height={320}
+        className="absolute left-20 -top-24 w-36 md:right-250 md:left-auto md:-top-50 md:w-92 z-20 pointer-events-none"
+      />
+
+      <Image
+        src="/deco2.png"
+        alt=""
+        width={380}
+        height={380}
+        className="absolute left-[12%] -top-6 w-28 md:left-[12%] md:-top-2 md:w-56 rotate-6 z-20 pointer-events-none"
+      />
+
+      <Image
+        src="/deco9.png"
+        alt=""
+        width={300}
+        height={300}
+        className="absolute left-[38%] -top-20 w-32 md:left-[31%] md:-top-30 md:w-100 -rotate-3 z-20 pointer-events-none"
+      />
+
+      <Image
+        src="/deco6.png"
+        alt=""
+        width={280}
+        height={280}
+        className="absolute -right-8 -top-24 w-32 md:right-[10%] md:-top-90 md:w-92 rotate-270 z-20 pointer-events-none"
+      />
+
+      {/* CORAZÓN SUPERIOR DERECHO */}
+      <Image
+        src="/deco5.png"
+        alt=""
+        width={220}
+        height={220}
+        className="absolute right-1 top-2 w-24 md:right-10 md:top-6 md:w-40 rotate-12 z-30 pointer-events-none"
+      />
+
+      {/* =========================================
+    DECORACIÓN IZQUIERDA
+========================================= */}
+
+      <Image
+        src="/deco8.png"
+        alt=""
+        width={260}
+        height={260}
+        className="absolute -left-8 top-[0%] w-32 md:left-0 md:top-0 md:w-72 -rotate-180 z-20 pointer-events-none"
+      />
+
+      <Image
+        src="/deco1.png"
+        alt=""
+        width={280}
+        height={280}
+        className="absolute -left-19 top-[16%] w-28 md:-left-22 md:top-[34%] md:w-56 rotate-140 z-20 pointer-events-none"
+      />
+
+      <Image
+        src="/deco6.png"
+        alt=""
+        width={280}
+        height={280}
+        className="absolute -left-19 top-[26%] w-32 md:-left-22 md:top-[34%] md:w-56 rotate-170 z-10 pointer-events-none"
+      />
+
+      <Image
+        src="/deco3.png"
+        alt=""
+        width={220}
+        height={220}
+        className="absolute left-0 top-[83%] w-24 md:left-2 md:top-[60%] md:w-70 -rotate-12 z-30 pointer-events-none"
+      />
+
+      {/* =========================================
+    DECORACIÓN DERECHA
+========================================= */}
+
+      <Image
+        src="/deco9.png"
+        alt=""
+        width={280}
+        height={280}
+        className="absolute -right-14 top-[10%] w-28 md:-right-40 md:top-[12%] md:w-96 -rotate-1 z-10 pointer-events-none"
+      />
+
+      <Image
+        src="/deco2.png"
+        alt=""
+        width={280}
+        height={280}
+        className="absolute -right-14 top-[19%] w-28 md:-right-40 md:top-[12%] md:w-96 -rotate-1 z-0 pointer-events-none"
+      />
+
+      <Image
+        src="/deco11.png"
+        alt=""
+        width={280}
+        height={280}
+        className="absolute -right-16 top-[28%] w-32 md:-right-40 md:top-[22%] md:w-96 -rotate-1 z-20 pointer-events-none"
+      />
+
+      <Image
+        src="/deco10.png"
+        alt=""
+        width={280}
+        height={280}
+        className="absolute -right-10 top-[52%] w-28 md:right-[-6%] md:top-[55%] md:w-56 -rotate-6 z-20 pointer-events-none"
+      />
+
+      <Image
+        src="/deco1.png"
+        alt=""
+        width={280}
+        height={280}
+        className="absolute -right-19 top-[70%] w-28 md:-right-10 md:-bottom-8 md:top-auto md:w-56 -rotate-6 z-20 pointer-events-none"
+      />
+
+      {/* =========================================
+    DECORACIÓN INFERIOR
+========================================= */}
+
+      <Image
+        src="/deco7.png"
+        alt=""
+        width={1600}
+        height={500}
+        className="
+    absolute
+
+    left-[-45%]
+    bottom-26
+    w-full
+    h-[135px]
+    rotate-90
+
+    md:left-0
+    md:bottom-0
+    md:h-[230px]
+    md:rotate-0
+
+    lg:h-[280px]
+
+    object-cover
+    object-top
+    z-20
+    pointer-events-none
+  "
+      />
+
+      <Image
+        src="/deco7.png"
+        alt=""
+        width={1600}
+        height={500}
+        className="
+    absolute
+
+    left-0
+    -bottom-11
+    w-full
+    h-[145px]
+
+    md:-bottom-18
+    md:h-[230px]
+
+    lg:h-[280px]
+
+    object-cover
+    object-top
+    z-0
+    pointer-events-none
+  "
+      />
+
+      <Image
+        src="/deco8.png"
+        alt=""
+        width={280}
+        height={280}
+        className="absolute -right-3 -bottom-4 w-24 md:-right-10 md:-bottom-8 md:w-56 -rotate-6 z-20 pointer-events-none"
+      />
+
+      <Image
+        src="/deco10.png"
+        alt=""
+        width={280}
+        height={280}
+        className="absolute right-[-10%] top-[58%] w-24 md:right-[-6%] md:top-[55%] md:w-56 -rotate-6 z-20 pointer-events-none"
+      />
+
+      {/* =========================================
+          CONTENIDO CENTRAL
+      ========================================= */}
+
+      <div className="relative z-100 mx-auto flex min-h-[82vh] w-full max-w-6xl flex-col items-center justify-center text-center">
+        <p className="font-engravers text-2xl text-text md:text-5xl">
+          Estas invitad@
+        </p>
+
+        {/* =========================================
+            TICKET COMPLETO
+        ========================================= */}
+
+        <div className="mt-8 w-full max-w-4xl md:mt-14">
+          {/* BORDE EXTERIOR BLANCO GRUESO */}
+          <div className="border-[6px] border-text bg-background p-1.5 md:border-[12px] md:p-3">
+            <div className="flex min-h-[150px] md:min-h-[260px]">
+              {/* TICKET PRINCIPAL */}
+              <div className="relative min-w-0 flex-1 overflow-hidden">
+                <Image
+                  src="/ticket.png"
+                  alt=""
+                  width={1200}
+                  height={500}
+                  className="absolute inset-0 h-full w-full object-fill pointer-events-none"
+                />
+
+                <div className="relative z-10 flex h-full min-h-[150px] flex-col items-center justify-center px-2 py-5 md:min-h-[260px] md:px-14 md:py-12">
+                  <p className="font-engravers text-lg text-background sm:text-xl md:text-5xl">
+                    Save the date
+                  </p>
+
+                  <div className="my-2 flex w-[82%] items-center md:my-6">
+                    <div className="h-px flex-1 bg-background/70 md:h-[2px]" />
+
+                    <span className="mx-2 font-engravers text-xs text-background md:mx-3 md:text-2xl">
+                      ✦
+                    </span>
+
+                    <div className="h-px flex-1 bg-background/70 md:h-[2px]" />
+                  </div>
+
+                  <p className="font-engravers text-[13px] tracking-[0.07em] text-background sm:text-base md:text-4xl md:tracking-[0.12em]">
+                    22 . 01 . 2027
+                  </p>
+                </div>
+              </div>
+
+              {/* =====================================
+                  SEPARADOR BORDÓ
+              ====================================== */}
+
+              <div className="relative z-20 flex w-8 shrink-0 items-center justify-center bg-background md:w-20">
+                {/* CÍRCULO SUPERIOR */}
+                <div className="absolute left-1/2 top-0 h-5 w-5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-text md:h-12 md:w-12" />
+
+                {/* PUNTOS MÁS ESPACIADOS */}
+                <div className="flex h-[68%] flex-col items-center justify-between md:h-[72%]">
+                  <span className="h-[2px] w-[2px] rounded-full bg-text md:h-1 md:w-1" />
+                  <span className="h-[2px] w-[2px] rounded-full bg-text md:h-1 md:w-1" />
+                  <span className="h-[2px] w-[2px] rounded-full bg-text md:h-1 md:w-1" />
+                  <span className="h-[2px] w-[2px] rounded-full bg-text md:h-1 md:w-1" />
+                  <span className="h-[2px] w-[2px] rounded-full bg-text md:h-1 md:w-1" />
+                  <span className="h-[2px] w-[2px] rounded-full bg-text md:h-1 md:w-1" />
+                  <span className="h-[2px] w-[2px] rounded-full bg-text md:h-1 md:w-1" />
+                </div>
+
+                {/* CÍRCULO INFERIOR */}
+                <div className="absolute bottom-0 left-1/2 h-5 w-5 -translate-x-1/2 translate-y-1/2 rounded-full bg-text md:h-12 md:w-12" />
+              </div>
+
+              {/* ESPACIO BORDÓ */}
+              <div className="w-2 shrink-0 bg-background md:w-5" />
+
+              {/* WEDDING TICKET */}
+              <div className="flex w-[58px] shrink-0 items-center justify-center bg-text sm:w-[70px] md:w-[145px]">
+                <p className="font-engravers text-[9px] leading-tight text-background [writing-mode:vertical-rl] rotate-180 sm:text-[11px] md:text-2xl">
+                  wedding ticket
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p className="mt-7 max-w-[300px] font-grenze text-xl leading-tight text-text sm:max-w-sm md:mt-12 md:max-w-2xl md:text-4xl">
+          Celebramos nuestro amor y
+          <br />
+          nos encantaría que nos acompañes
+        </p>
+      </div>
+    </section>
+  );
+}
