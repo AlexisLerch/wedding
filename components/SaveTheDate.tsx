@@ -25,38 +25,39 @@ export default function SaveTheDate() {
 
   /* =========================================
     MOVIMIENTOS GENERALES
+    Movimiento suave y limitado en mobile
 ========================================= */
 
   // IZQUIERDA
   const leftX = useTransform(
     scrollYProgress,
-    [0, 0.3, 0.7, 1],
-    [-55, 0, 0, 45],
+    [0, 0.28, 0.72, 1],
+    [-25, 0, 0, 10],
   );
 
   const leftY = useTransform(
     scrollYProgress,
-    [0, 0.3, 0.7, 1],
-    [45, 0, 0, -45],
+    [0, 0.28, 0.72, 1],
+    [20, 0, 0, -10],
   );
 
   const leftRotate = useTransform(
     scrollYProgress,
-    [0, 0.3, 0.7, 1],
-    [-8, 0, 0, 8],
+    [0, 0.28, 0.72, 1],
+    [-4, 0, 0, 2],
   );
 
   // IZQUIERDA MÁS FUERTE
   const leftFastX = useTransform(
     scrollYProgress,
-    [0, 0.3, 0.7, 1],
-    [-90, 0, 0, 70],
+    [0, 0.28, 0.72, 1],
+    [-35, 0, 0, 15],
   );
 
   const leftFastY = useTransform(
     scrollYProgress,
-    [0, 0.3, 0.7, 1],
-    [70, 0, 0, -70],
+    [0, 0.28, 0.72, 1],
+    [30, 0, 0, -15],
   );
 
   /* =========================================
@@ -65,44 +66,48 @@ export default function SaveTheDate() {
 
   const rightX = useTransform(
     scrollYProgress,
-    [0, 0.3, 0.7, 1],
-    [55, 0, 0, -45],
+    [0, 0.28, 0.72, 1],
+    [25, 0, 0, -10],
   );
 
   const rightY = useTransform(
     scrollYProgress,
-    [0, 0.3, 0.7, 1],
-    [45, 0, 0, -45],
+    [0, 0.28, 0.72, 1],
+    [20, 0, 0, -10],
   );
 
   const rightRotate = useTransform(
     scrollYProgress,
-    [0, 0.3, 0.7, 1],
-    [8, 0, 0, -8],
+    [0, 0.28, 0.72, 1],
+    [4, 0, 0, -2],
   );
 
   const rightFastX = useTransform(
     scrollYProgress,
-    [0, 0.3, 0.7, 1],
-    [90, 0, 0, -70],
+    [0, 0.28, 0.72, 1],
+    [35, 0, 0, -15],
   );
 
   const rightFastY = useTransform(
     scrollYProgress,
-    [0, 0.3, 0.7, 1],
-    [70, 0, 0, -70],
+    [0, 0.28, 0.72, 1],
+    [30, 0, 0, -15],
   );
 
   /* =========================================
     DECORACIONES SUPERIORES
 ========================================= */
 
-  const topY = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [-30, 0, 0, 80]);
+  const topY = useTransform(
+    scrollYProgress,
+    [0, 0.28, 0.72, 1],
+    [-20, 0, 0, 15],
+  );
 
   const topFastY = useTransform(
     scrollYProgress,
-    [0, 0.3, 0.7, 1],
-    [-60, 0, 0, 120],
+    [0, 0.28, 0.72, 1],
+    [-30, 0, 0, 20],
   );
 
   /* =========================================
@@ -111,14 +116,14 @@ export default function SaveTheDate() {
 
   const bottomY = useTransform(
     scrollYProgress,
-    [0, 0.3, 0.7, 1],
-    [90, 0, 0, -80],
+    [0, 0.28, 0.72, 1],
+    [35, 0, 0, -15],
   );
 
   const bottomFastY = useTransform(
     scrollYProgress,
-    [0, 0.3, 0.7, 1],
-    [130, 0, 0, -110],
+    [0, 0.28, 0.72, 1],
+    [45, 0, 0, -20],
   );
 
   /* =========================================
@@ -127,20 +132,20 @@ export default function SaveTheDate() {
 
   const contentY = useTransform(
     scrollYProgress,
-    [0, 0.3, 0.7, 1],
-    [65, 0, 0, -65],
+    [0, 0.28, 0.72, 1],
+    [30, 0, 0, -15],
   );
 
   const contentScale = useTransform(
     scrollYProgress,
-    [0, 0.3, 0.7, 1],
-    [0.97, 1, 1, 0.97],
+    [0, 0.28, 0.72, 1],
+    [0.98, 1, 1, 0.99],
   );
 
   const contentOpacity = useTransform(
     scrollYProgress,
-    [0, 0.2, 0.3, 0.7, 0.8, 1],
-    [0.35, 0.85, 1, 1, 0.85, 0.35],
+    [0, 0.2, 0.28, 0.72, 0.9, 1],
+    [0.5, 0.9, 1, 1, 1, 0.85],
   );
 
   /* =========================================
@@ -149,20 +154,20 @@ export default function SaveTheDate() {
 
   const ticketY = useTransform(
     scrollYProgress,
-    [0, 0.3, 0.7, 1],
-    [90, 0, 0, -90],
+    [0, 0.28, 0.72, 1],
+    [40, 0, 0, -15],
   );
 
   const ticketRotate = useTransform(
     scrollYProgress,
-    [0, 0.3, 0.7, 1],
-    [-2, 0, 0, 2],
+    [0, 0.28, 0.72, 1],
+    [-1, 0, 0, 0.5],
   );
 
   const ticketScale = useTransform(
     scrollYProgress,
-    [0, 0.3, 0.7, 1],
-    [0.95, 1, 1, 0.95],
+    [0, 0.28, 0.72, 1],
+    [0.97, 1, 1, 0.99],
   );
 
   return (
