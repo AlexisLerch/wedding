@@ -2,77 +2,57 @@
 
 import { useRef } from "react";
 import Image from "next/image";
-import { motion, useScroll, useTransform } from "motion/react";
+import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 
 export default function RSVPSection() {
-  const sectionRef = useRef<HTMLElement>(null);
+  const sectionRef = useRef<HTMLElement | null>(null);
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start end", "end start"],
   });
 
-  /* =========================================
-      MOVIMIENTOS SCROLL
-  ========================================= */
+  // =====================================================
+  // SCROLL SUAVIZADO
+  // =====================================================
 
+  const smoothScroll = useSpring(scrollYProgress, {
+    stiffness: 70,
+    damping: 22,
+    mass: 0.45,
+  });
+
+  // =====================================================
   // MARCO
-  const frameX = useTransform(
-    scrollYProgress,
-    [0, 0.3, 0.75, 1],
-    [-22, 0, 0, 6],
-  );
+  // =====================================================
 
-  const frameY = useTransform(
-    scrollYProgress,
-    [0, 0.3, 0.75, 1],
-    [25, 0, 0, -8],
-  );
+  const frameX = useTransform(smoothScroll, [0, 0.5, 1], [-12, 0, 12]);
 
-  const frameRotate = useTransform(
-    scrollYProgress,
-    [0, 0.3, 0.75, 1],
-    [-2, 0, 0, 1],
-  );
+  const frameY = useTransform(smoothScroll, [0, 0.5, 1], [12, 0, -12]);
 
+  // =====================================================
   // LLAVES
-  const keysX = useTransform(
-    scrollYProgress,
-    [0, 0.3, 0.75, 1],
-    [25, 0, 0, -6],
-  );
+  // =====================================================
 
-  const keysY = useTransform(
-    scrollYProgress,
-    [0, 0.3, 0.75, 1],
-    [-18, 0, 0, 6],
-  );
+  const keysX = useTransform(smoothScroll, [0, 0.5, 1], [10, 0, -10]);
 
+  const keysY = useTransform(smoothScroll, [0, 0.5, 1], [-10, 0, 10]);
+
+  // =====================================================
   // ESTRELLAS
-  const starsX = useTransform(
-    scrollYProgress,
-    [0, 0.3, 0.75, 1],
-    [18, 0, 0, -5],
-  );
+  // =====================================================
 
-  const starsY = useTransform(
-    scrollYProgress,
-    [0, 0.3, 0.75, 1],
-    [25, 0, 0, -6],
-  );
+  const starsX = useTransform(smoothScroll, [0, 0.5, 1], [8, 0, -8]);
 
-  // CONTENIDO
-  const contentY = useTransform(
-    scrollYProgress,
-    [0, 0.3, 0.75, 1],
-    [28, 0, 0, -8],
-  );
+  const starsY = useTransform(smoothScroll, [0, 0.5, 1], [10, 0, -10]);
 
-  const contentScale = useTransform(
-    scrollYProgress,
-    [0, 0.3, 0.75, 1],
-    [0.98, 1, 1, 0.995],
-  );
+  // =====================================================
+  // CONTENIDO CENTRAL
+  // =====================================================
+
+  const contentY = useTransform(smoothScroll, [0, 0.5, 1], [12, 0, -12]);
+
+  const contentScale = useTransform(smoothScroll, [0, 0.5, 1], [0.99, 1, 0.99]);
 
   return (
     <section
@@ -83,6 +63,7 @@ export default function RSVPSection() {
         min-h-screen
         overflow-hidden
         bg-background
+
         px-4
         py-10
 
@@ -93,9 +74,9 @@ export default function RSVPSection() {
         md:py-24
       "
     >
-      {/* =========================================
+      {/* =====================================================
           LLAVE SUPERIOR
-      ========================================= */}
+      ===================================================== */}
 
       <motion.div
         style={{
@@ -104,21 +85,25 @@ export default function RSVPSection() {
         }}
         initial={{
           opacity: 0,
-          scale: 0.88,
-          rotate: -3,
+          scale: 0.94,
         }}
         whileInView={{
           opacity: 1,
           scale: 1,
-          rotate: 0,
         }}
         viewport={{
-          once: true,
+          once: false,
           amount: 0.1,
         }}
         transition={{
-          duration: 0.8,
-          ease: "easeOut",
+          opacity: {
+            duration: 0.8,
+            ease: "easeOut",
+          },
+          scale: {
+            duration: 0.8,
+            ease: "easeOut",
+          },
         }}
         className="
           absolute
@@ -139,19 +124,21 @@ export default function RSVPSection() {
           width={500}
           height={220}
           className="
-            h-auto
-            w-28
             pointer-events-none
+            h-auto
+
+            w-28
 
             sm:w-36
+
             md:w-72
           "
         />
       </motion.div>
 
-      {/* =========================================
+      {/* =====================================================
           LLAVE INFERIOR
-      ========================================= */}
+      ===================================================== */}
 
       <motion.div
         style={{
@@ -160,22 +147,27 @@ export default function RSVPSection() {
         }}
         initial={{
           opacity: 0,
-          scale: 0.88,
-          rotate: 4,
+          scale: 0.94,
         }}
         whileInView={{
           opacity: 1,
           scale: 1,
-          rotate: 0,
         }}
         viewport={{
-          once: true,
+          once: false,
           amount: 0.1,
         }}
         transition={{
-          duration: 0.8,
-          delay: 0.1,
-          ease: "easeOut",
+          opacity: {
+            duration: 0.8,
+            delay: 0.08,
+            ease: "easeOut",
+          },
+          scale: {
+            duration: 0.8,
+            delay: 0.08,
+            ease: "easeOut",
+          },
         }}
         className="
           absolute
@@ -196,55 +188,60 @@ export default function RSVPSection() {
           width={500}
           height={220}
           className="
-            h-auto
-            w-32
             pointer-events-none
+            h-auto
+
+            w-32
 
             sm:w-40
+
             md:w-72
           "
         />
       </motion.div>
 
-      {/* =========================================
+      {/* =====================================================
           MARCO IZQUIERDO
-      ========================================= */}
+      ===================================================== */}
 
       <motion.div
         style={{
           x: frameX,
           y: frameY,
-          rotate: frameRotate,
         }}
         initial={{
           opacity: 0,
-          scale: 0.92,
+          scale: 0.94,
         }}
         whileInView={{
           opacity: 1,
           scale: 1,
         }}
         viewport={{
-          once: true,
-          amount: 0.15,
+          once: false,
+          amount: 0.12,
         }}
         transition={{
-          duration: 0.9,
-          type: "spring",
-          stiffness: 70,
-          damping: 18,
+          opacity: {
+            duration: 0.9,
+            ease: "easeOut",
+          },
+          scale: {
+            duration: 0.9,
+            ease: "easeOut",
+          },
         }}
         className="
           absolute
-          left-4
           bottom-[4%]
+          left-4
           z-20
 
-          sm:left-[4%]
           sm:bottom-[3%]
+          sm:left-[4%]
 
-          md:left-[1%]
           md:bottom-[3%]
+          md:left-[1%]
         "
       >
         <div className="relative">
@@ -254,34 +251,38 @@ export default function RSVPSection() {
             width={500}
             height={700}
             className="
-              h-auto
-              w-32
               pointer-events-none
+              h-auto
+
+              w-32
 
               sm:w-40
+
               md:w-72
             "
           />
 
-          {/* A & L */}
+          {/* =====================================================
+              A & L
+          ===================================================== */}
 
           <motion.div
             initial={{
               opacity: 0,
-              scale: 0.7,
+              scale: 0.85,
             }}
             whileInView={{
               opacity: 1,
               scale: 1,
             }}
             viewport={{
-              once: true,
+              once: false,
+              amount: 0.4,
             }}
             transition={{
               duration: 0.7,
-              delay: 0.45,
-              type: "spring",
-              stiffness: 100,
+              delay: 0.15,
+              ease: "easeOut",
             }}
             className="
               absolute
@@ -311,9 +312,9 @@ export default function RSVPSection() {
         </div>
       </motion.div>
 
-      {/* =========================================
+      {/* =====================================================
           ESTRELLAS DERECHA
-      ========================================= */}
+      ===================================================== */}
 
       <motion.div
         style={{
@@ -322,36 +323,37 @@ export default function RSVPSection() {
         }}
         initial={{
           opacity: 0,
-          scale: 0.82,
-          rotate: -6,
+          scale: 0.92,
         }}
         whileInView={{
           opacity: 1,
           scale: 1,
-          rotate: 0,
         }}
         viewport={{
-          once: true,
+          once: false,
           amount: 0.1,
         }}
         transition={{
-          duration: 0.9,
-          delay: 0.18,
-          type: "spring",
-          stiffness: 65,
-          damping: 15,
+          opacity: {
+            duration: 0.9,
+            ease: "easeOut",
+          },
+          scale: {
+            duration: 0.9,
+            ease: "easeOut",
+          },
         }}
         className="
           absolute
-          right-5
           bottom-[7%]
+          right-5
           z-10
 
-          sm:right-[4%]
           sm:bottom-[6%]
+          sm:right-[4%]
 
-          md:right-[4%]
           md:bottom-[7%]
+          md:right-[4%]
         "
       >
         <Image
@@ -360,19 +362,21 @@ export default function RSVPSection() {
           width={500}
           height={500}
           className="
-            h-auto
-            w-24
             pointer-events-none
+            h-auto
+
+            w-24
 
             sm:w-32
+
             md:w-64
           "
         />
       </motion.div>
 
-      {/* =========================================
+      {/* =====================================================
           CONTENIDO CENTRAL
-      ========================================= */}
+      ===================================================== */}
 
       <motion.div
         style={{
@@ -382,6 +386,7 @@ export default function RSVPSection() {
         className="
           relative
           z-30
+
           mx-auto
           flex
           min-h-[92vh]
@@ -390,9 +395,11 @@ export default function RSVPSection() {
           flex-col
           items-center
           justify-center
+
           px-3
           pb-24
           pt-28
+
           text-center
 
           sm:px-5
@@ -405,29 +412,29 @@ export default function RSVPSection() {
           md:pt-0
         "
       >
-        {/* =========================================
+        {/* =====================================================
             RSVP
-        ========================================= */}
+        ===================================================== */}
 
         <motion.p
           initial={{
             opacity: 0,
-            y: 25,
+            y: 20,
           }}
           whileInView={{
             opacity: 1,
             y: 0,
           }}
           viewport={{
-            once: true,
-            amount: 0.5,
+            once: false,
+            amount: 0.4,
           }}
           transition={{
             duration: 0.7,
             ease: "easeOut",
           }}
           className="
-            font-engravers
+            font-girassol
             text-3xl
             leading-none
             text-text
@@ -440,15 +447,15 @@ export default function RSVPSection() {
           RSVP
         </motion.p>
 
-        {/* =========================================
+        {/* =====================================================
             TEXTO FRANCÉS
-        ========================================= */}
+        ===================================================== */}
 
         <motion.h2
           initial={{
             opacity: 0,
-            y: 30,
-            scale: 0.97,
+            y: 22,
+            scale: 0.98,
           }}
           whileInView={{
             opacity: 1,
@@ -456,18 +463,19 @@ export default function RSVPSection() {
             scale: 1,
           }}
           viewport={{
-            once: true,
-            amount: 0.4,
+            once: false,
+            amount: 0.35,
           }}
           transition={{
             duration: 0.8,
-            delay: 0.1,
+            delay: 0.08,
             ease: "easeOut",
           }}
           className="
             mt-2
             max-w-[300px]
-            font-engravers
+
+            font-girassol
             text-[25px]
             leading-[0.95]
             text-text
@@ -484,31 +492,32 @@ export default function RSVPSection() {
           &quot;Répondez s&apos;il vous plaît&quot;
         </motion.h2>
 
-        {/* =========================================
+        {/* =====================================================
             ACLARACIÓN
-        ========================================= */}
+        ===================================================== */}
 
         <motion.p
           initial={{
             opacity: 0,
-            y: 18,
+            y: 16,
           }}
           whileInView={{
             opacity: 1,
             y: 0,
           }}
           viewport={{
-            once: true,
-            amount: 0.4,
+            once: false,
+            amount: 0.35,
           }}
           transition={{
             duration: 0.7,
-            delay: 0.25,
+            delay: 0.15,
             ease: "easeOut",
           }}
           className="
             mt-3
             max-w-[285px]
+
             font-grenze
             text-lg
             font-bold

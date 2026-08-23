@@ -1,53 +1,84 @@
 "use client";
 
+import { useRef } from "react";
 import Image from "next/image";
-import { motion, useScroll, useTransform } from "motion/react";
+import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 
 export default function Hero() {
-  const { scrollY } = useScroll();
+  const sectionRef = useRef<HTMLElement | null>(null);
 
-  /* =========================================
-      PARALLAX FLORES SUPERIORES
-      SUAVE - SIN ROTACIÓN
-  ========================================= */
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  });
 
-  const topSlowY = useTransform(scrollY, [0, 800], [0, 25]);
-  const topMediumY = useTransform(scrollY, [0, 800], [0, 40]);
-  const topFastY = useTransform(scrollY, [0, 800], [0, 55]);
+  // =====================================================
+  // SCROLL SUAVE
+  // =====================================================
 
-  const topSlowX = useTransform(scrollY, [0, 800], [0, -6]);
-  const topMediumX = useTransform(scrollY, [0, 800], [0, -10]);
-  const topFastX = useTransform(scrollY, [0, 800], [0, -14]);
+  const smoothScroll = useSpring(scrollYProgress, {
+    stiffness: 70,
+    damping: 22,
+    mass: 0.45,
+  });
 
-  /* =========================================
-      PARALLAX FLORES INFERIORES
-      SUAVE - SIN ROTACIÓN
-  ========================================= */
+  // =====================================================
+  // FLORES ARRIBA
+  // Movimiento corto para que no se vayan al centro.
+  // =====================================================
 
-  const bottomSlowY = useTransform(scrollY, [0, 800], [0, -25]);
-  const bottomMediumY = useTransform(scrollY, [0, 800], [0, -40]);
-  const bottomFastY = useTransform(scrollY, [0, 800], [0, -55]);
+  const topSlowY = useTransform(smoothScroll, [0, 0.5, 1], [0, 8, 18]);
 
-  const bottomSlowX = useTransform(scrollY, [0, 800], [0, 6]);
-  const bottomMediumX = useTransform(scrollY, [0, 800], [0, 10]);
-  const bottomFastX = useTransform(scrollY, [0, 800], [0, 14]);
+  const topMediumY = useTransform(smoothScroll, [0, 0.5, 1], [0, 12, 26]);
 
-  /* =========================================
-      PARALLAX TEXTO
-  ========================================= */
+  const topFastY = useTransform(smoothScroll, [0, 0.5, 1], [0, 16, 34]);
 
-  const titleY = useTransform(scrollY, [0, 650], [0, -80]);
-  const titleScale = useTransform(scrollY, [0, 650], [1, 0.97]);
-  const titleOpacity = useTransform(scrollY, [0, 450], [1, 0]);
+  const topSlowX = useTransform(smoothScroll, [0, 0.5, 1], [0, -2, -5]);
 
-  /* =========================================
-      INDICADOR SCROLL
-  ========================================= */
+  const topMediumX = useTransform(smoothScroll, [0, 0.5, 1], [0, -4, -8]);
 
-  const scrollIndicatorOpacity = useTransform(scrollY, [0, 180], [1, 0]);
+  const topFastX = useTransform(smoothScroll, [0, 0.5, 1], [0, -5, -11]);
+
+  // =====================================================
+  // FLORES ABAJO
+  // Movimiento contrario.
+  // =====================================================
+
+  const bottomSlowY = useTransform(smoothScroll, [0, 0.5, 1], [0, -8, -18]);
+
+  const bottomMediumY = useTransform(smoothScroll, [0, 0.5, 1], [0, -12, -26]);
+
+  const bottomFastY = useTransform(smoothScroll, [0, 0.5, 1], [0, -16, -34]);
+
+  const bottomSlowX = useTransform(smoothScroll, [0, 0.5, 1], [0, 2, 5]);
+
+  const bottomMediumX = useTransform(smoothScroll, [0, 0.5, 1], [0, 4, 8]);
+
+  const bottomFastX = useTransform(smoothScroll, [0, 0.5, 1], [0, 5, 11]);
+
+  // =====================================================
+  // CONTENIDO CENTRAL
+  // =====================================================
+
+  const titleY = useTransform(smoothScroll, [0, 0.5, 1], [0, -12, -25]);
+
+  const titleScale = useTransform(smoothScroll, [0, 0.5, 1], [1, 0.995, 0.985]);
+
+  const titleOpacity = useTransform(smoothScroll, [0, 0.65, 1], [1, 1, 0.72]);
+
+  // =====================================================
+  // INDICADOR DE SCROLL
+  // =====================================================
+
+  const scrollIndicatorOpacity = useTransform(
+    smoothScroll,
+    [0, 0.3, 0.65],
+    [1, 0.5, 0],
+  );
 
   return (
     <section
+      ref={sectionRef}
       className="
         relative
         flex
@@ -61,32 +92,28 @@ export default function Hero() {
         text-center
       "
     >
-      {/* =========================================
+      {/* =====================================================
           FLORES ARRIBA IZQUIERDA
-      ========================================= */}
+      ===================================================== */}
 
-      {/* FLOR GRANDE PRINCIPAL */}
+      {/* FLOR GRANDE */}
 
       <motion.div
+        style={{
+          x: topSlowX,
+          y: topSlowY,
+        }}
         initial={{
           opacity: 0,
-          x: -35,
-          y: -25,
           scale: 0.96,
         }}
         animate={{
           opacity: 1,
-          x: 0,
-          y: 0,
           scale: 1,
         }}
         transition={{
           duration: 1,
           ease: "easeOut",
-        }}
-        style={{
-          translateY: topSlowY,
-          translateX: topSlowX,
         }}
         className="
           absolute
@@ -104,8 +131,8 @@ export default function Hero() {
           height={420}
           priority
           className="
-            w-40
             pointer-events-none
+            w-40
 
             md:w-80
           "
@@ -115,26 +142,22 @@ export default function Hero() {
       {/* SEGUNDA FLOR */}
 
       <motion.div
+        style={{
+          x: topMediumX,
+          y: topMediumY,
+        }}
         initial={{
           opacity: 0,
-          x: -30,
-          y: -15,
           scale: 0.96,
         }}
         animate={{
           opacity: 1,
-          x: 0,
-          y: 0,
           scale: 1,
         }}
         transition={{
           duration: 1,
           delay: 0.08,
           ease: "easeOut",
-        }}
-        style={{
-          translateY: topMediumY,
-          translateX: topMediumX,
         }}
         className="
           absolute
@@ -150,11 +173,10 @@ export default function Hero() {
           alt=""
           width={360}
           height={360}
-          priority
           className="
+            pointer-events-none
             w-36
             -rotate-12
-            pointer-events-none
 
             md:w-72
           "
@@ -164,24 +186,22 @@ export default function Hero() {
       {/* TERCERA FLOR */}
 
       <motion.div
+        style={{
+          x: topSlowX,
+          y: topSlowY,
+        }}
         initial={{
           opacity: 0,
-          y: -30,
           scale: 0.96,
         }}
         animate={{
           opacity: 1,
-          y: 0,
           scale: 1,
         }}
         transition={{
           duration: 1,
           delay: 0.14,
           ease: "easeOut",
-        }}
-        style={{
-          translateY: topSlowY,
-          translateX: topSlowX,
         }}
         className="
           absolute
@@ -197,11 +217,10 @@ export default function Hero() {
           alt=""
           width={340}
           height={340}
-          priority
           className="
+            pointer-events-none
             w-32
             rotate-12
-            pointer-events-none
 
             md:w-72
           "
@@ -211,24 +230,22 @@ export default function Hero() {
       {/* CUARTA FLOR */}
 
       <motion.div
+        style={{
+          x: topMediumX,
+          y: topMediumY,
+        }}
         initial={{
           opacity: 0,
-          x: -25,
           scale: 0.94,
         }}
         animate={{
           opacity: 1,
-          x: 0,
           scale: 1,
         }}
         transition={{
           duration: 0.9,
           delay: 0.2,
           ease: "easeOut",
-        }}
-        style={{
-          translateY: topMediumY,
-          translateX: topMediumX,
         }}
         className="
           absolute
@@ -245,9 +262,9 @@ export default function Hero() {
           width={240}
           height={240}
           className="
+            pointer-events-none
             w-24
             rotate-6
-            pointer-events-none
 
             md:w-48
           "
@@ -257,24 +274,22 @@ export default function Hero() {
       {/* FLOR PEQUEÑA */}
 
       <motion.div
+        style={{
+          x: topFastX,
+          y: topFastY,
+        }}
         initial={{
           opacity: 0,
           scale: 0.85,
-          y: 12,
         }}
         animate={{
           opacity: 1,
           scale: 1,
-          y: 0,
         }}
         transition={{
           duration: 0.85,
           delay: 0.28,
           ease: "easeOut",
-        }}
-        style={{
-          translateY: topFastY,
-          translateX: topFastX,
         }}
         className="
           absolute
@@ -291,9 +306,9 @@ export default function Hero() {
           width={140}
           height={140}
           className="
+            pointer-events-none
             w-14
             rotate-12
-            pointer-events-none
 
             md:w-24
           "
@@ -303,24 +318,22 @@ export default function Hero() {
       {/* FLOR PEQUEÑA ALEJADA */}
 
       <motion.div
+        style={{
+          x: topFastX,
+          y: topFastY,
+        }}
         initial={{
           opacity: 0,
           scale: 0.85,
-          y: 12,
         }}
         animate={{
           opacity: 1,
           scale: 1,
-          y: 0,
         }}
         transition={{
           duration: 0.85,
           delay: 0.36,
           ease: "easeOut",
-        }}
-        style={{
-          translateY: topFastY,
-          translateX: topFastX,
         }}
         className="
           absolute
@@ -337,49 +350,45 @@ export default function Hero() {
           width={120}
           height={120}
           className="
+            pointer-events-none
             w-11
             -rotate-6
-            pointer-events-none
 
             md:w-20
           "
         />
       </motion.div>
 
-      {/* =========================================
+      {/* =====================================================
           FLORES ABAJO DERECHA
-      ========================================= */}
+      ===================================================== */}
 
-      {/* FLOR GRANDE PRINCIPAL */}
+      {/* FLOR GRANDE */}
 
       <motion.div
+        style={{
+          x: bottomSlowX,
+          y: bottomSlowY,
+        }}
         initial={{
           opacity: 0,
-          x: 35,
-          y: 25,
           scale: 0.96,
         }}
         animate={{
           opacity: 1,
-          x: 0,
-          y: 0,
           scale: 1,
         }}
         transition={{
           duration: 1,
           ease: "easeOut",
         }}
-        style={{
-          translateY: bottomSlowY,
-          translateX: bottomSlowX,
-        }}
         className="
           absolute
-          -right-10
           -bottom-10
+          -right-10
 
-          md:-right-16
           md:-bottom-20
+          md:-right-16
         "
       >
         <Image
@@ -389,9 +398,9 @@ export default function Hero() {
           height={420}
           priority
           className="
+            pointer-events-none
             w-40
             rotate-12
-            pointer-events-none
 
             md:w-80
           "
@@ -401,26 +410,22 @@ export default function Hero() {
       {/* SEGUNDA FLOR */}
 
       <motion.div
+        style={{
+          x: bottomMediumX,
+          y: bottomMediumY,
+        }}
         initial={{
           opacity: 0,
-          x: 30,
-          y: 15,
           scale: 0.96,
         }}
         animate={{
           opacity: 1,
-          x: 0,
-          y: 0,
           scale: 1,
         }}
         transition={{
           duration: 1,
           delay: 0.08,
           ease: "easeOut",
-        }}
-        style={{
-          translateY: bottomMediumY,
-          translateX: bottomMediumX,
         }}
         className="
           absolute
@@ -437,9 +442,9 @@ export default function Hero() {
           width={360}
           height={360}
           className="
+            pointer-events-none
             w-36
             -rotate-12
-            pointer-events-none
 
             md:w-72
           "
@@ -449,24 +454,22 @@ export default function Hero() {
       {/* TERCERA FLOR */}
 
       <motion.div
+        style={{
+          x: bottomSlowX,
+          y: bottomSlowY,
+        }}
         initial={{
           opacity: 0,
-          y: 30,
           scale: 0.96,
         }}
         animate={{
           opacity: 1,
-          y: 0,
           scale: 1,
         }}
         transition={{
           duration: 1,
           delay: 0.14,
           ease: "easeOut",
-        }}
-        style={{
-          translateY: bottomSlowY,
-          translateX: bottomSlowX,
         }}
         className="
           absolute
@@ -483,9 +486,9 @@ export default function Hero() {
           width={340}
           height={340}
           className="
+            pointer-events-none
             w-32
             rotate-6
-            pointer-events-none
 
             md:w-72
           "
@@ -495,24 +498,22 @@ export default function Hero() {
       {/* CUARTA FLOR */}
 
       <motion.div
+        style={{
+          x: bottomMediumX,
+          y: bottomMediumY,
+        }}
         initial={{
           opacity: 0,
-          x: 25,
           scale: 0.94,
         }}
         animate={{
           opacity: 1,
-          x: 0,
           scale: 1,
         }}
         transition={{
           duration: 0.9,
           delay: 0.2,
           ease: "easeOut",
-        }}
-        style={{
-          translateY: bottomMediumY,
-          translateX: bottomMediumX,
         }}
         className="
           absolute
@@ -529,9 +530,9 @@ export default function Hero() {
           width={220}
           height={220}
           className="
+            pointer-events-none
             w-24
             -rotate-6
-            pointer-events-none
 
             md:w-44
           "
@@ -541,32 +542,30 @@ export default function Hero() {
       {/* FLOR PEQUEÑA */}
 
       <motion.div
+        style={{
+          x: bottomFastX,
+          y: bottomFastY,
+        }}
         initial={{
           opacity: 0,
           scale: 0.85,
-          y: -12,
         }}
         animate={{
           opacity: 1,
           scale: 1,
-          y: 0,
         }}
         transition={{
           duration: 0.85,
           delay: 0.28,
           ease: "easeOut",
         }}
-        style={{
-          translateY: bottomFastY,
-          translateX: bottomFastX,
-        }}
         className="
           absolute
-          right-20
           bottom-36
+          right-20
 
-          md:right-40
           md:bottom-44
+          md:right-40
         "
       >
         <Image
@@ -575,9 +574,9 @@ export default function Hero() {
           width={140}
           height={140}
           className="
+            pointer-events-none
             w-14
             rotate-12
-            pointer-events-none
 
             md:w-24
           "
@@ -587,32 +586,30 @@ export default function Hero() {
       {/* FLOR PEQUEÑA ALEJADA */}
 
       <motion.div
+        style={{
+          x: bottomFastX,
+          y: bottomFastY,
+        }}
         initial={{
           opacity: 0,
           scale: 0.85,
-          y: -12,
         }}
         animate={{
           opacity: 1,
           scale: 1,
-          y: 0,
         }}
         transition={{
           duration: 0.85,
           delay: 0.36,
           ease: "easeOut",
         }}
-        style={{
-          translateY: bottomFastY,
-          translateX: bottomFastX,
-        }}
         className="
           absolute
-          right-10
           bottom-48
+          right-10
 
-          md:right-52
           md:bottom-60
+          md:right-52
         "
       >
         <Image
@@ -621,18 +618,18 @@ export default function Hero() {
           width={120}
           height={120}
           className="
+            pointer-events-none
             w-11
             -rotate-6
-            pointer-events-none
 
             md:w-20
           "
         />
       </motion.div>
 
-      {/* =========================================
+      {/* =====================================================
           CONTENIDO CENTRAL
-      ========================================= */}
+      ===================================================== */}
 
       <motion.div
         style={{
@@ -666,7 +663,7 @@ export default function Hero() {
           }}
           className="
             mb-12
-            font-engravers
+            font-girassol
             text-2xl
             uppercase
             tracking-[0.15em]
@@ -679,7 +676,9 @@ export default function Hero() {
           Nuestra unión
         </motion.p>
 
-        {/* NOMBRES */}
+        {/* =====================================================
+            NOMBRES
+        ===================================================== */}
 
         <motion.h1
           initial={{
@@ -781,11 +780,14 @@ export default function Hero() {
         </motion.h1>
       </motion.div>
 
-      {/* =========================================
+      {/* =====================================================
           INDICADOR SCROLL
-      ========================================= */}
+      ===================================================== */}
 
       <motion.div
+        style={{
+          opacity: scrollIndicatorOpacity,
+        }}
         initial={{
           opacity: 0,
         }}
@@ -795,9 +797,6 @@ export default function Hero() {
         transition={{
           duration: 0.8,
           delay: 1.3,
-        }}
-        style={{
-          opacity: scrollIndicatorOpacity,
         }}
         className="
           absolute
@@ -824,7 +823,24 @@ export default function Hero() {
             items-center
             gap-2
           "
-        />
+        >
+          <div
+            className="
+              h-8
+              w-[1px]
+              bg-text/50
+            "
+          />
+
+          <div
+            className="
+              h-1.5
+              w-1.5
+              rounded-full
+              bg-text/70
+            "
+          />
+        </motion.div>
       </motion.div>
     </section>
   );

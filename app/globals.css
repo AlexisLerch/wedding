@@ -16,6 +16,8 @@ body {
   --font-engravers: "Engravers Old English BT", serif;
   --font-engravers: var(--font-engravers-old);
   --font-grenze: var(--font-grenze);
+  --font-unifraktur: var(--font-unifraktur);
+  --font-girassol: var(--font-girassol);
   --color-background: #661414;
   --color-gold: #c9a227;
   --color-gold-light: #e8d48b;
