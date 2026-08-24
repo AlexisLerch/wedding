@@ -490,36 +490,36 @@ export default function GiftSection() {
       </motion.div>
 
       {/* =====================================================
-          CONTENIDO
-      ===================================================== */}
+    CONTENIDO
+===================================================== */}
 
       <div
         className="
-          relative
-          z-10
+    relative
+    z-10
 
-          flex
-          min-h-[1080px]
-          w-full
-          flex-col
+    flex
+    min-h-[1080px]
+    w-full
+    flex-col
 
-          px-5
-          pt-[400px]
+    px-5
+    pt-[400px]
 
-          text-center
+    text-center
 
-          md:mx-auto
-          md:min-h-[calc(100vh-10rem)]
-          md:max-w-[1100px]
-          md:items-center
-          md:justify-center
-          md:px-0
-          md:pt-0
-        "
+    md:mx-auto
+    md:min-h-[calc(100vh-10rem)]
+    md:max-w-[1100px]
+    md:items-center
+    md:justify-center
+    md:px-0
+    md:pt-0
+  "
       >
         {/* =====================================================
-            TEXTO PRINCIPAL
-        ===================================================== */}
+      TEXTO PRINCIPAL
+  ===================================================== */}
 
         <motion.div
           style={{ y: textY }}
@@ -540,48 +540,48 @@ export default function GiftSection() {
             ease: "easeOut",
           }}
           className="
-            mx-auto
-            w-full
-            max-w-[470px]
+      mx-auto
+      w-full
+      max-w-[470px]
 
-            md:max-w-[650px]
+      md:max-w-[650px]
 
-            lg:max-w-[720px]
-          "
+      lg:max-w-[720px]
+    "
         >
           <p
             className="
-              font-grenze
-              font-semibold
+        font-grenze
+        font-semibold
 
-              text-[19px]
-              leading-[1.14]
+        text-[19px]
+        leading-[1.14]
 
-              min-[400px]:text-[21px]
+        min-[400px]:text-[21px]
 
-              sm:text-[22px]
+        sm:text-[22px]
 
-              md:text-[27px]
-              md:leading-[1.15]
+        md:text-[27px]
+        md:leading-[1.15]
 
-              lg:text-[31px]
-            "
+        lg:text-[31px]
+      "
           >
-            Si bien no es obligatorio para reservar tu lugar,
+            Si bien no es obligatorio para reservar tu lugar,{" "}
             <br className="hidden md:block" />
-            (porque ese lugar ya lo tenes en nuestros corazones y
+            (porque ese lugar ya lo tenes en nuestros corazones y{" "}
             <br className="hidden md:block" />
-            porque sabemos que las cosas no están fáciles),
+            porque sabemos que las cosas no están fáciles),{" "}
             <br className="hidden md:block" />
-            nos ayudaría mucho si podes colaborar para el
+            nos ayudaría mucho si podes colaborar para el{" "}
             <br className="hidden md:block" />
             cubierto con $20.000
           </p>
         </motion.div>
 
         {/* =====================================================
-            DATOS BANCARIOS
-        ===================================================== */}
+      DATOS BANCARIOS
+  ===================================================== */}
 
         <motion.div
           style={{ y: bankY }}
@@ -591,6 +591,7 @@ export default function GiftSection() {
           }}
           whileInView={{
             opacity: 1,
+            y: 0,
           }}
           viewport={{
             once: false,
@@ -601,42 +602,45 @@ export default function GiftSection() {
             ease: "easeOut",
           }}
           className="
-            absolute
+      relative
+      z-20
 
-            bottom-[18%]
-            right-[-5%]
+      mx-auto
+      mt-7
 
-            w-[72%]
-            max-w-[320px]
+      w-full
+      max-w-[340px]
 
-            text-center
+      text-center
 
-            md:bottom-[0%]
-            md:right-[3%]
-            md:w-auto
-            md:max-w-none
+      md:absolute
+      md:bottom-[0%]
+      md:right-[3%]
+      md:mt-0
+      md:w-auto
+      md:max-w-none
 
-            lg:right-[7%]
-          "
+      lg:right-[7%]
+    "
         >
           <div
             className="
-              font-grenze
-              font-semibold
+        font-grenze
+        font-semibold
 
-              text-[17px]
-              leading-[1.12]
+        text-[17px]
+        leading-[1.2]
 
-              sm:text-[20px]
+        sm:text-[20px]
 
-              md:text-[18px]
+        md:text-[18px]
 
-              lg:text-[22px]
-            "
+        lg:text-[22px]
+      "
           >
             {/* ==============================
-                ALIAS + BOTÓN COPIAR
-            ============================== */}
+          ALIAS + BOTÓN COPIAR
+      ============================== */}
 
             <div className="flex items-center justify-center gap-2">
               <span>Alias:</span>
@@ -647,53 +651,50 @@ export default function GiftSection() {
                 aria-label="Copiar alias alexislerch"
                 title="Copiar alias"
                 className="
-                  group
-                  flex
-                  cursor-pointer
-                  items-center
-                  gap-2
-                  rounded-md
-                  bg-transparent
-                  px-1
-                  py-1
-                  transition-all
-                  duration-200
+            group
+            flex
+            cursor-pointer
+            items-center
+            gap-2
+            rounded-md
+            bg-transparent
+            px-1
+            py-1
+            transition-all
+            duration-200
 
-                  hover:opacity-70
-                  active:scale-95
-                "
+            hover:opacity-70
+            active:scale-95
+          "
               >
                 <span>alexislerch</span>
 
                 {copied ? (
                   <FiCheck
                     className="
-                      text-[17px]
-                      md:text-[19px]
-                      lg:text-[21px]
-                    "
+                text-[17px]
+                md:text-[19px]
+                lg:text-[21px]
+              "
                   />
                 ) : (
                   <FiCopy
                     className="
-                      text-[17px]
-                      transition-transform
-                      duration-200
+                text-[17px]
+                transition-transform
+                duration-200
 
-                      group-hover:scale-110
+                group-hover:scale-110
 
-                      md:text-[19px]
-                      lg:text-[21px]
-                    "
+                md:text-[19px]
+                lg:text-[21px]
+              "
                   />
                 )}
               </button>
             </div>
 
-            {/* MENSAJE DE COPIADO */}
-            {/* RESTO DE DATOS */}
-
-            <p>
+            <p className="mt-1">
               CVU: 0000003100005661566182
               <br />
               Nombre: Alexis Damian Lerch

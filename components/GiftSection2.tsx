@@ -236,7 +236,7 @@ export default function GiftsSection() {
         >
           Tu presencia es lo más importante,
           <br className="hidden sm:block" />
-          pero si deseas hacernos un regalo podrías
+          pero si deseas hacernos un regalo podrías{" "}
           <br className="hidden md:block" />
           ayudarnos con dinero.
         </motion.p>

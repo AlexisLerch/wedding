@@ -477,7 +477,7 @@ export default function RSVPSecond() {
             <br />
             porfavor traete vianda y una silla.
             <br />
-            No, mentira, solo avisanos asi podemos tener todo
+            No, mentira, solo avisanos asi podemos tener todo{" "}
             <br className="hidden md:block" />
             preparado con tiempo.
           </p>

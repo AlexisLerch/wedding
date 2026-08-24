@@ -28,15 +28,11 @@ export default function Hero() {
   // =====================================================
 
   const topSlowY = useTransform(smoothScroll, [0, 0.5, 1], [0, 8, 18]);
-
   const topMediumY = useTransform(smoothScroll, [0, 0.5, 1], [0, 12, 26]);
-
   const topFastY = useTransform(smoothScroll, [0, 0.5, 1], [0, 16, 34]);
 
   const topSlowX = useTransform(smoothScroll, [0, 0.5, 1], [0, -2, -5]);
-
   const topMediumX = useTransform(smoothScroll, [0, 0.5, 1], [0, -4, -8]);
-
   const topFastX = useTransform(smoothScroll, [0, 0.5, 1], [0, -5, -11]);
 
   // =====================================================
@@ -45,15 +41,11 @@ export default function Hero() {
   // =====================================================
 
   const bottomSlowY = useTransform(smoothScroll, [0, 0.5, 1], [0, -8, -18]);
-
   const bottomMediumY = useTransform(smoothScroll, [0, 0.5, 1], [0, -12, -26]);
-
   const bottomFastY = useTransform(smoothScroll, [0, 0.5, 1], [0, -16, -34]);
 
   const bottomSlowX = useTransform(smoothScroll, [0, 0.5, 1], [0, 2, 5]);
-
   const bottomMediumX = useTransform(smoothScroll, [0, 0.5, 1], [0, 4, 8]);
-
   const bottomFastX = useTransform(smoothScroll, [0, 0.5, 1], [0, 5, 11]);
 
   // =====================================================
@@ -119,7 +111,6 @@ export default function Hero() {
           absolute
           -left-10
           -top-10
-
           md:-left-16
           md:-top-20
         "
@@ -133,7 +124,6 @@ export default function Hero() {
           className="
             pointer-events-none
             w-40
-
             md:w-80
           "
         />
@@ -163,7 +153,6 @@ export default function Hero() {
           absolute
           -left-12
           top-10
-
           md:-left-20
           md:top-24
         "
@@ -177,7 +166,6 @@ export default function Hero() {
             pointer-events-none
             w-36
             -rotate-12
-
             md:w-72
           "
         />
@@ -207,7 +195,6 @@ export default function Hero() {
           absolute
           left-12
           -top-8
-
           md:left-32
           md:-top-20
         "
@@ -221,7 +208,6 @@ export default function Hero() {
             pointer-events-none
             w-32
             rotate-12
-
             md:w-72
           "
         />
@@ -251,7 +237,6 @@ export default function Hero() {
           absolute
           -left-1
           top-24
-
           md:left-6
           md:top-48
         "
@@ -265,7 +250,6 @@ export default function Hero() {
             pointer-events-none
             w-24
             rotate-6
-
             md:w-48
           "
         />
@@ -295,7 +279,6 @@ export default function Hero() {
           absolute
           left-20
           top-36
-
           md:left-40
           md:top-44
         "
@@ -309,7 +292,6 @@ export default function Hero() {
             pointer-events-none
             w-14
             rotate-12
-
             md:w-24
           "
         />
@@ -339,7 +321,6 @@ export default function Hero() {
           absolute
           left-10
           top-48
-
           md:left-52
           md:top-60
         "
@@ -353,7 +334,6 @@ export default function Hero() {
             pointer-events-none
             w-11
             -rotate-6
-
             md:w-20
           "
         />
@@ -386,7 +366,6 @@ export default function Hero() {
           absolute
           -bottom-10
           -right-10
-
           md:-bottom-20
           md:-right-16
         "
@@ -401,7 +380,6 @@ export default function Hero() {
             pointer-events-none
             w-40
             rotate-12
-
             md:w-80
           "
         />
@@ -431,7 +409,6 @@ export default function Hero() {
           absolute
           -right-12
           bottom-10
-
           md:-right-20
           md:bottom-24
         "
@@ -445,7 +422,6 @@ export default function Hero() {
             pointer-events-none
             w-36
             -rotate-12
-
             md:w-72
           "
         />
@@ -475,7 +451,6 @@ export default function Hero() {
           absolute
           right-12
           -bottom-8
-
           md:right-32
           md:-bottom-24
         "
@@ -489,7 +464,6 @@ export default function Hero() {
             pointer-events-none
             w-32
             rotate-6
-
             md:w-72
           "
         />
@@ -519,7 +493,6 @@ export default function Hero() {
           absolute
           -right-1
           bottom-24
-
           md:right-4
           md:bottom-44
         "
@@ -533,7 +506,6 @@ export default function Hero() {
             pointer-events-none
             w-24
             -rotate-6
-
             md:w-44
           "
         />
@@ -563,7 +535,6 @@ export default function Hero() {
           absolute
           bottom-36
           right-20
-
           md:bottom-44
           md:right-40
         "
@@ -577,7 +548,6 @@ export default function Hero() {
             pointer-events-none
             w-14
             rotate-12
-
             md:w-24
           "
         />
@@ -607,7 +577,6 @@ export default function Hero() {
           absolute
           bottom-48
           right-10
-
           md:bottom-60
           md:right-52
         "
@@ -621,7 +590,6 @@ export default function Hero() {
             pointer-events-none
             w-11
             -rotate-6
-
             md:w-20
           "
         />
@@ -645,7 +613,9 @@ export default function Hero() {
           items-center
         "
       >
-        {/* NUESTRA UNIÓN */}
+        {/* =====================================================
+            NUESTRA UNIÓN
+        ===================================================== */}
 
         <motion.p
           initial={{
@@ -664,13 +634,14 @@ export default function Hero() {
           className="
             mb-12
             font-unifraktur
-            text-2xl
-            uppercase
+            text-4xl
             tracking-[0.15em]
             text-text
 
+            [text-shadow:0_4px_5px_rgba(0,0,0,0.65),0_10px_22px_rgba(0,0,0,0.50),0_18px_38px_rgba(0,0,0,0.30)]
+
             md:mb-16
-            md:text-4xl
+            md:text-6xl
           "
         >
           Nuestra unión
@@ -702,6 +673,8 @@ export default function Hero() {
             font-medium
             leading-[0.85]
             text-text
+
+            [text-shadow:0_4px_5px_rgba(0,0,0,0.75),0_10px_20px_rgba(0,0,0,0.55),0_20px_40px_rgba(0,0,0,0.35)]
 
             sm:text-8xl
             md:text-[7rem]
@@ -749,7 +722,6 @@ export default function Hero() {
               my-3
               block
               text-3xl
-
               sm:text-4xl
               md:text-6xl
             "
