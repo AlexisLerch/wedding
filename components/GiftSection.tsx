@@ -2,10 +2,34 @@
 
 import Image from "next/image";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import { FiCopy, FiCheck } from "react-icons/fi";
 
 export default function GiftSection() {
   const sectionRef = useRef<HTMLElement | null>(null);
+  const [copied, setCopied] = useState(false);
+
+  // =====================================================
+  // COPIAR ALIAS
+  // =====================================================
+
+  const copyAlias = async () => {
+    try {
+      await navigator.clipboard.writeText("alexislerch");
+
+      setCopied(true);
+
+      setTimeout(() => {
+        setCopied(false);
+      }, 1800);
+    } catch (error) {
+      console.error("No se pudo copiar el alias:", error);
+    }
+  };
+
+  // =====================================================
+  // SCROLL
+  // =====================================================
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -156,11 +180,7 @@ export default function GiftSection() {
           alt=""
           width={250}
           height={250}
-          className="
-            h-auto
-            w-full
-            object-contain
-          "
+          className="h-auto w-full object-contain"
         />
       </motion.div>
 
@@ -210,11 +230,7 @@ export default function GiftSection() {
           alt=""
           width={150}
           height={150}
-          className="
-            h-auto
-            w-full
-            object-contain
-          "
+          className="h-auto w-full object-contain"
         />
       </motion.div>
 
@@ -263,17 +279,13 @@ export default function GiftSection() {
           alt=""
           width={350}
           height={450}
-          className="
-            h-auto
-            w-full
-            object-contain
-          "
+          className="h-auto w-full object-contain"
         />
       </motion.div>
 
       {/* =====================================================
-    ESTRELLA GRANDE
-===================================================== */}
+          ESTRELLA GRANDE
+      ===================================================== */}
 
       <motion.div
         style={{ y: starY }}
@@ -294,24 +306,24 @@ export default function GiftSection() {
           ease: "easeOut",
         }}
         className="
-    pointer-events-none
-    absolute
-    z-[0]
+          pointer-events-none
+          absolute
+          z-[0]
 
-    bottom-[11%]
-    left-[14%]
-    w-[95px]
+          bottom-[11%]
+          left-[14%]
+          w-[95px]
 
-    sm:bottom-[9%]
-    sm:left-[11%]
-    sm:w-[110px]
+          sm:bottom-[9%]
+          sm:left-[11%]
+          sm:w-[110px]
 
-    md:bottom-[8%]
-    md:left-[7%]
-    md:w-[155px]
+          md:bottom-[8%]
+          md:left-[7%]
+          md:w-[155px]
 
-    lg:w-[250px]
-  "
+          lg:w-[250px]
+        "
       >
         <Image
           src="/star2.png"
@@ -323,8 +335,8 @@ export default function GiftSection() {
       </motion.div>
 
       {/* =====================================================
-    ESTRELLA CHICA
-===================================================== */}
+          ESTRELLA CHICA
+      ===================================================== */}
 
       <motion.div
         style={{ y: star2Y }}
@@ -345,24 +357,24 @@ export default function GiftSection() {
           ease: "easeOut",
         }}
         className="
-    pointer-events-none
-    absolute
-    z-[1]
+          pointer-events-none
+          absolute
+          z-[1]
 
-    bottom-[12%]
-    left-[18%]
-    w-[68px]
+          bottom-[12%]
+          left-[18%]
+          w-[68px]
 
-    sm:bottom-[13%]
-    sm:left-[20%]
-    sm:w-[78px]
+          sm:bottom-[13%]
+          sm:left-[20%]
+          sm:w-[78px]
 
-    md:bottom-[13%]
-    md:left-[10%]
-    md:w-[110px]
+          md:bottom-[13%]
+          md:left-[10%]
+          md:w-[110px]
 
-    lg:w-[150px]
-  "
+          lg:w-[150px]
+        "
       >
         <Image
           src="/star3.png"
@@ -422,16 +434,12 @@ export default function GiftSection() {
           alt=""
           width={400}
           height={400}
-          className="
-            h-auto
-            w-full
-            object-contain
-          "
+          className="h-auto w-full object-contain"
         />
       </motion.div>
 
       {/* =====================================================
-          PLATO 2 / DECORACIÓN DE FONDO
+          PLATO 2
       ===================================================== */}
 
       <motion.div
@@ -477,11 +485,7 @@ export default function GiftSection() {
           alt=""
           width={400}
           height={400}
-          className="
-            h-auto
-            w-full
-            object-contain
-          "
+          className="h-auto w-full object-contain"
         />
       </motion.div>
 
@@ -599,15 +603,15 @@ export default function GiftSection() {
           className="
             absolute
 
-            bottom-[11%]
-            right-[5%]
+            bottom-[18%]
+            right-[-5%]
 
             w-[72%]
             max-w-[320px]
 
             text-center
 
-            md:bottom-[6%]
+            md:bottom-[0%]
             md:right-[3%]
             md:w-auto
             md:max-w-none
@@ -615,7 +619,7 @@ export default function GiftSection() {
             lg:right-[7%]
           "
         >
-          <p
+          <div
             className="
               font-grenze
               font-semibold
@@ -630,12 +634,71 @@ export default function GiftSection() {
               lg:text-[22px]
             "
           >
-            Alias: alexislerch
-            <br />
-            CVU: 0000003100005661566182
-            <br />
-            Nombre: Alexis Damian Lerch
-          </p>
+            {/* ==============================
+                ALIAS + BOTÓN COPIAR
+            ============================== */}
+
+            <div className="flex items-center justify-center gap-2">
+              <span>Alias:</span>
+
+              <button
+                type="button"
+                onClick={copyAlias}
+                aria-label="Copiar alias alexislerch"
+                title="Copiar alias"
+                className="
+                  group
+                  flex
+                  cursor-pointer
+                  items-center
+                  gap-2
+                  rounded-md
+                  bg-transparent
+                  px-1
+                  py-1
+                  transition-all
+                  duration-200
+
+                  hover:opacity-70
+                  active:scale-95
+                "
+              >
+                <span>alexislerch</span>
+
+                {copied ? (
+                  <FiCheck
+                    className="
+                      text-[17px]
+                      md:text-[19px]
+                      lg:text-[21px]
+                    "
+                  />
+                ) : (
+                  <FiCopy
+                    className="
+                      text-[17px]
+                      transition-transform
+                      duration-200
+
+                      group-hover:scale-110
+
+                      md:text-[19px]
+                      lg:text-[21px]
+                    "
+                  />
+                )}
+              </button>
+            </div>
+
+            {/* MENSAJE DE COPIADO */}
+            {/* RESTO DE DATOS */}
+
+            <p>
+              CVU: 0000003100005661566182
+              <br />
+              Nombre: Alexis Damian Lerch
+            </p>
+          </div>
         </motion.div>
       </div>
     </section>

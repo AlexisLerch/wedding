@@ -487,7 +487,7 @@ export default function RSVPSecond() {
             BOTÓN
         ===================================================== */}
 
-        <motion.a
+        {/* <motion.a
           style={{ y: buttonY }}
           href="#confirmar"
           initial={{
@@ -538,7 +538,7 @@ export default function RSVPSecond() {
           "
         >
           Confirmar asistencia
-        </motion.a>
+        </motion.a> */}
       </div>
     </section>
   );

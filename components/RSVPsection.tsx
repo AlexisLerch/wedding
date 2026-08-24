@@ -59,20 +59,24 @@ export default function RSVPSection() {
       ref={sectionRef}
       id="rsvp"
       className="
-        relative
-        min-h-screen
-        overflow-hidden
-        bg-background
+    relative
+    min-h-[82vh]
+    overflow-hidden
+    bg-background
+    -mt-40
 
-        px-4
-        py-10
+    px-4
+    pb-8
+    pt-2
 
-        sm:px-6
-        sm:py-14
+    sm:min-h-[86vh]
+    sm:px-6
+    sm:py-10
 
-        md:px-10
-        md:py-24
-      "
+    md:min-h-screen
+    md:px-10
+    md:py-16
+  "
     >
       {/* =====================================================
           LLAVE SUPERIOR
@@ -106,17 +110,17 @@ export default function RSVPSection() {
           },
         }}
         className="
-          absolute
-          right-[12%]
-          top-[4%]
-          z-10
+  absolute
+  right-[12%]
+  top-[1.5%]
+  z-10
 
-          sm:right-[14%]
-          sm:top-[5%]
+  sm:right-[14%]
+  sm:top-[4%]
 
-          md:right-[19%]
-          md:top-[5%]
-        "
+  md:right-[19%]
+  md:top-[6%]
+"
       >
         <Image
           src="/llave1.png"
@@ -126,7 +130,6 @@ export default function RSVPSection() {
           className="
             pointer-events-none
             h-auto
-
             w-28
 
             sm:w-36
@@ -170,17 +173,17 @@ export default function RSVPSection() {
           },
         }}
         className="
-          absolute
-          right-[4%]
-          top-[12%]
-          z-10
+  absolute
+  right-[4%]
+  top-[9%]
+  z-10
 
-          sm:right-[5%]
-          sm:top-[13%]
+  sm:right-[5%]
+  sm:top-[13%]
 
-          md:right-[8%]
-          md:top-[16%]
-        "
+  md:right-[8%]
+  md:top-[17%]
+"
       >
         <Image
           src="/llave2.png"
@@ -190,7 +193,6 @@ export default function RSVPSection() {
           className="
             pointer-events-none
             h-auto
-
             w-32
 
             sm:w-40
@@ -233,14 +235,15 @@ export default function RSVPSection() {
         }}
         className="
           absolute
-          bottom-[4%]
+          bottom-[5%]
           left-4
           z-20
+          mb-20
 
-          sm:bottom-[3%]
+          sm:bottom-[4%]
           sm:left-[4%]
 
-          md:bottom-[3%]
+          md:bottom-[4%]
           md:left-[1%]
         "
       >
@@ -253,7 +256,6 @@ export default function RSVPSection() {
             className="
               pointer-events-none
               h-auto
-
               w-32
 
               sm:w-40
@@ -345,14 +347,15 @@ export default function RSVPSection() {
         }}
         className="
           absolute
-          bottom-[7%]
+          bottom-[8%]
           right-5
           z-10
+          mb-20
 
-          sm:bottom-[6%]
+          sm:bottom-[7%]
           sm:right-[4%]
 
-          md:bottom-[7%]
+          md:bottom-[8%]
           md:right-[4%]
         "
       >
@@ -364,7 +367,6 @@ export default function RSVPSection() {
           className="
             pointer-events-none
             h-auto
-
             w-24
 
             sm:w-32
@@ -389,27 +391,29 @@ export default function RSVPSection() {
 
           mx-auto
           flex
-          min-h-[92vh]
+          min-h-[72vh]
           w-full
           max-w-5xl
           flex-col
           items-center
           justify-center
+          -mt-20
 
           px-3
-          pb-24
-          pt-28
+          pb-20
+          pt-20
 
           text-center
 
+          sm:min-h-[76vh]
           sm:px-5
-          sm:pb-20
-          sm:pt-32
+          sm:pb-24
+          sm:pt-24
 
-          md:min-h-[85vh]
+          md:min-h-[80vh]
           md:px-0
-          md:pb-0
-          md:pt-0
+          md:pb-12
+          md:pt-12
         "
       >
         {/* =====================================================
@@ -472,7 +476,7 @@ export default function RSVPSection() {
             ease: "easeOut",
           }}
           className="
-            mt-2
+            mt-3
             max-w-[300px]
 
             font-girassol
@@ -480,10 +484,11 @@ export default function RSVPSection() {
             leading-[0.95]
             text-text
 
+            sm:mt-4
             sm:max-w-md
             sm:text-3xl
 
-            md:mt-4
+            md:mt-5
             md:max-w-5xl
             md:text-6xl
             md:leading-[0.95]
@@ -515,7 +520,7 @@ export default function RSVPSection() {
             ease: "easeOut",
           }}
           className="
-            mt-3
+            mt-4
             max-w-[285px]
 
             font-grenze
@@ -524,10 +529,11 @@ export default function RSVPSection() {
             leading-tight
             text-text
 
+            sm:mt-5
             sm:max-w-md
             sm:text-xl
 
-            md:mt-5
+            md:mt-7
             md:max-w-3xl
             md:text-4xl
           "

@@ -496,17 +496,9 @@ export default function LocationSection() {
                 stiffness: 80,
                 damping: 18,
               }}
-              className="absolute inset-0 z-20"
+              className="pointer-events-none absolute inset-0 z-20"
             >
-              <Image
-                src="/marco.png"
-                alt=""
-                fill
-                className="
-                  pointer-events-none
-                  object-fill
-                "
-              />
+              <Image src="/marco.png" alt="" fill className="object-fill" />
             </motion.div>
 
             {/* GOOGLE MAPS */}
@@ -532,11 +524,12 @@ export default function LocationSection() {
               className="relative z-10 h-full w-full overflow-hidden bg-white"
             >
               <iframe
-                src="https://www.google.com/maps?q=Quinto+Cocina+Familiar,+San+Martin+de+los+Andes,+Neuquen&z=13&output=embed"
-                className="h-full w-full touch-auto border-0"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4233.7870507698535!2d-71.13600050716964!3d-40.08486005014675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9611a1cfec87fe31%3A0xce6369427d07a4ac!2sQuinto%20Cocina%20Familiar!5e1!3m2!1ses!2sar!4v1787577372210!5m2!1ses!2sar"
+                title="Ubicación Restaurante Quinto"
+                className="absolute inset-0 h-full w-full border-0"
                 loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
                 allowFullScreen
+                referrerPolicy="no-referrer-when-downgrade"
               />
             </motion.div>
           </div>

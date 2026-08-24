@@ -2,10 +2,26 @@
 
 import Image from "next/image";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import { FiCopy, FiCheck } from "react-icons/fi";
 
 export default function GiftsSection() {
   const sectionRef = useRef<HTMLElement | null>(null);
+  const [copied, setCopied] = useState(false);
+
+  const copyAlias = async () => {
+    try {
+      await navigator.clipboard.writeText("l.cristal2");
+
+      setCopied(true);
+
+      setTimeout(() => {
+        setCopied(false);
+      }, 1800);
+    } catch (error) {
+      console.error("No se pudo copiar el alias:", error);
+    }
+  };
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -90,6 +106,7 @@ export default function GiftsSection() {
           "
         />
       </motion.div>
+
       <motion.div
         style={{ y: giftsY }}
         initial={{ opacity: 0, y: 25 }}
@@ -166,6 +183,7 @@ export default function GiftsSection() {
         "
       >
         {/* TÍTULO */}
+
         <motion.h2
           initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -191,6 +209,7 @@ export default function GiftsSection() {
         </motion.h2>
 
         {/* TEXTO PRINCIPAL */}
+
         <motion.p
           initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -223,6 +242,7 @@ export default function GiftsSection() {
         </motion.p>
 
         {/* DATOS */}
+
         <motion.div
           initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -257,9 +277,15 @@ export default function GiftsSection() {
             Transferencia bancaria / Mercadopago
           </p>
 
-          <p
+          {/* ALIAS COPIABLE */}
+
+          <div
             className="
               mt-1
+              flex
+              items-center
+              justify-center
+              gap-2
               font-grenze
               text-[19px]
               font-semibold
@@ -270,8 +296,56 @@ export default function GiftsSection() {
               md:text-[23px]
             "
           >
-            Alias: l.cristal2
-          </p>
+            <span>Alias:</span>
+
+            <button
+              type="button"
+              onClick={copyAlias}
+              aria-label="Copiar alias l.cristal2"
+              title="Copiar alias"
+              className="
+                group
+                flex
+                cursor-pointer
+                items-center
+                gap-2
+                rounded-md
+                bg-transparent
+                px-1
+                py-1
+                transition-all
+                duration-200
+
+                hover:opacity-70
+                active:scale-95
+              "
+            >
+              <span>l.cristal2</span>
+
+              {copied ? (
+                <FiCheck
+                  className="
+                    text-[17px]
+                    sm:text-[19px]
+                    md:text-[21px]
+                  "
+                />
+              ) : (
+                <FiCopy
+                  className="
+                    text-[17px]
+                    transition-transform
+                    duration-200
+
+                    group-hover:scale-110
+
+                    sm:text-[19px]
+                    md:text-[21px]
+                  "
+                />
+              )}
+            </button>
+          </div>
 
           <p
             className="
@@ -342,6 +416,7 @@ export default function GiftsSection() {
         "
       >
         {/* TARJETA DECORATIVA */}
+
         <Image
           src="/decoracion2.png"
           alt=""
@@ -362,12 +437,13 @@ export default function GiftsSection() {
 
             md:w-[200px]
 
-            lg:w-[225px]
             lg:right-[-30]
+            lg:w-[225px]
           "
         />
 
         {/* FOTO BLANCO Y NEGRO */}
+
         <Image
           src="/gift3.png"
           alt=""
@@ -392,6 +468,7 @@ export default function GiftsSection() {
         />
 
         {/* SELLO */}
+
         <motion.div
           initial={{ opacity: 0, scale: 0.85 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -403,14 +480,11 @@ export default function GiftsSection() {
           className="
             absolute
             left-[44%]
-            
-
+            top-[15%]
             z-20
 
             md:left-[42%]
             md:top-[20%]
-
-            top-[15%]
 
             lg:top-[20%]
           "

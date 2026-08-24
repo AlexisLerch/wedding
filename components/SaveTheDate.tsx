@@ -196,7 +196,7 @@ export default function SaveTheDate() {
           -top-24
           z-20
 
-          md:right-250
+          md:right-[37%]
           md:left-auto
           md:-top-50
         "
@@ -210,7 +210,76 @@ export default function SaveTheDate() {
             w-36
             pointer-events-none
 
+            md:w-100
+          "
+        />
+      </motion.div>
+      <motion.div
+        style={{
+          y: topY,
+          x: leftX,
+          rotate: leftRotate,
+        }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true, amount: 0.1 }}
+        transition={{ duration: 0.8 }}
+        className="
+          absolute
+          left-20
+          -top-24
+          z-20
+
+          md:right-[60%]
+          md:left-auto
+          md:-top-50
+        "
+      >
+        <Image
+          src="/deco11.png"
+          alt=""
+          width={120}
+          height={320}
+          className="
+            w-36
+            pointer-events-none
+
             md:w-92
+          "
+        />
+      </motion.div>
+      <motion.div
+        style={{
+          y: topY,
+          x: leftX,
+          rotate: leftRotate,
+        }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true, amount: 0.1 }}
+        transition={{ duration: 0.8 }}
+        className="
+          absolute
+          left-20
+          -top-24
+          z-20
+
+          md:right-[75%]
+          md:left-auto
+          md:-top-25
+          md:rotate-45
+        "
+      >
+        <Image
+          src="/deco1.png"
+          alt=""
+          width={120}
+          height={320}
+          className="
+            w-36
+            pointer-events-none
+
+            md:w-72
           "
         />
       </motion.div>
@@ -472,7 +541,7 @@ export default function SaveTheDate() {
             rotate-170
             pointer-events-none
 
-            md:w-56
+            md:w-66
           "
         />
       </motion.div>
@@ -508,6 +577,40 @@ export default function SaveTheDate() {
             pointer-events-none
 
             md:w-70
+          "
+        />
+      </motion.div>
+      <motion.div
+        style={{
+          x: leftFastX,
+          y: bottomY,
+          rotate: leftRotate,
+        }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true, amount: 0.1 }}
+        transition={{ duration: 0.8 }}
+        className="
+          absolute
+          left-18
+          top-[89%]
+          z-30
+
+          md:left-2
+          md:top-[80%]
+        "
+      >
+        <Image
+          src="/deco5.png"
+          alt=""
+          width={220}
+          height={220}
+          className="
+            w-24
+            -rotate-12
+            pointer-events-none
+
+            md:w-40
           "
         />
       </motion.div>
@@ -547,6 +650,7 @@ export default function SaveTheDate() {
             pointer-events-none
 
             md:w-96
+            
           "
         />
       </motion.div>
@@ -568,7 +672,7 @@ export default function SaveTheDate() {
           z-0
 
           md:-right-40
-          md:top-[12%]
+          md:top-[-100]
         "
       >
         <Image
@@ -578,6 +682,40 @@ export default function SaveTheDate() {
           height={280}
           className="
             w-28
+            -rotate-1
+            pointer-events-none
+
+            md:w-96
+          "
+        />
+      </motion.div>
+      <motion.div
+        style={{
+          x: rightX,
+          y: rightFastY,
+          rotate: leftRotate,
+        }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true, amount: 0.1 }}
+        transition={{ duration: 0.8, delay: 0.05 }}
+        className="
+          absolute
+          -right-34
+          top-[41%]
+          z-0
+
+          md:-right-40
+          md:top-[-90%]
+        "
+      >
+        <Image
+          src="/deco6.png"
+          alt=""
+          width={280}
+          height={280}
+          className="
+            w-48
             -rotate-1
             pointer-events-none
 
@@ -995,11 +1133,11 @@ export default function SaveTheDate() {
                     }}
                     className="
                       font-engravers
-                      text-lg
+                      text-4xl
                       text-background
 
-                      sm:text-xl
-                      md:text-5xl
+                      sm:text-5xl
+                      md:text-7xl
                     "
                   >
                     Save the date
@@ -1061,13 +1199,14 @@ export default function SaveTheDate() {
                     }}
                     className="
                       font-engravers
-                      text-[13px]
+                      font-extrabold
+                      text-3xl
                       tracking-[0.07em]
                       text-background
 
                       sm:text-base
 
-                      md:text-4xl
+                      md:text-5xl
                       md:tracking-[0.12em]
                     "
                   >
@@ -1159,13 +1298,13 @@ export default function SaveTheDate() {
                   className="
                     rotate-180
                     font-engravers
-                    text-[9px]
+                    text-2xl
                     leading-tight
                     text-background
                     [writing-mode:vertical-rl]
 
-                    sm:text-[11px]
-                    md:text-2xl
+                    sm:text-3xl
+                    md:text-4xl
                   "
                 >
                   wedding ticket

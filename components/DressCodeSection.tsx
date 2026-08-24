@@ -38,57 +38,56 @@ export default function DressCodeSection() {
             ease: [0.22, 1, 0.36, 1],
           }}
           className="
-            absolute
-            left-1/2
-            top-[38%]
-            z-10
-            w-[94%]
-            -translate-x-1/2
+    absolute
+    left-1/2
+    top-[38%]
+    z-10
+    w-[110vw]
+    -translate-x-1/2
 
-            md:left-[22%]
-            md:top-[42%]
-            md:w-[61%]
-            md:translate-x-0
-          "
+    md:top-[42%]
+    md:w-[100vw]
+  "
         >
           <Image
             src="/movie1.png"
             alt=""
-            width={1200}
+            width={1600}
             height={400}
-            className="h-auto w-full object-contain"
+            className="h-auto w-full object-fill"
           />
 
           <div
             className="
-              absolute
-              inset-0
-              flex
-              items-center
-              justify-center
-              px-9
-              text-center
-              md:px-20
-            "
+      absolute
+      inset-0
+      flex
+      items-center
+      justify-center
+      px-[12%]
+      text-center
+
+      md:px-[20%]
+    "
           >
             <p
               className="
-                font-grenze
-                text-[15px]
-                font-semibold
-                leading-tight
-                text-white
-                sm:text-[18px]
-                md:text-[23px]
-                lg:text-[26px]
-              "
+        font-grenze
+        text-lg
+        font-semibold
+        leading-tight
+        text-white
+
+        sm:text-3xl
+        md:text-4xl
+        lg:text-5xl
+      "
             >
               <span className="font-bold">DRESS CODE:</span> Usa algo con lo que
               te sientas lind@
             </p>
           </div>
         </motion.div>
-
         {/* CORAZONES */}
         <motion.div
           initial={{ opacity: 0, y: -25 }}
@@ -118,7 +117,9 @@ export default function DressCodeSection() {
             md:top-[5%]
             md:w-[24%]
 
-            lg:w-[31%]
+            lg:w-[41%]
+            lg:top-[10%]
+            lg:right-[-5%]
           "
         >
           <Image
@@ -165,6 +166,8 @@ export default function DressCodeSection() {
             md:w-[20%]
 
             lg:w-[18%]
+            lg:bottom-[-40%]
+            lg:left-[90%]
           "
         >
           <Image
@@ -214,6 +217,8 @@ export default function DressCodeSection() {
             md:w-[10%]
 
             lg:w-[8%]
+            lg:bottom-[-40%]
+            lg:left-[85%]
           "
         >
           <Image
