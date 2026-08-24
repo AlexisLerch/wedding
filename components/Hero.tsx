@@ -663,7 +663,7 @@ export default function Hero() {
           }}
           className="
             mb-12
-            font-girassol
+            font-unifraktur
             text-2xl
             uppercase
             tracking-[0.15em]
@@ -778,69 +778,6 @@ export default function Hero() {
             Lucila
           </motion.span>
         </motion.h1>
-      </motion.div>
-
-      {/* =====================================================
-          INDICADOR SCROLL
-      ===================================================== */}
-
-      <motion.div
-        style={{
-          opacity: scrollIndicatorOpacity,
-        }}
-        initial={{
-          opacity: 0,
-        }}
-        animate={{
-          opacity: 1,
-        }}
-        transition={{
-          duration: 0.8,
-          delay: 1.3,
-        }}
-        className="
-          absolute
-          bottom-5
-          left-1/2
-          z-20
-          -translate-x-1/2
-
-          md:bottom-8
-        "
-      >
-        <motion.div
-          animate={{
-            y: [0, 6, 0],
-          }}
-          transition={{
-            duration: 2,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          className="
-            flex
-            flex-col
-            items-center
-            gap-2
-          "
-        >
-          <div
-            className="
-              h-8
-              w-[1px]
-              bg-text/50
-            "
-          />
-
-          <div
-            className="
-              h-1.5
-              w-1.5
-              rounded-full
-              bg-text/70
-            "
-          />
-        </motion.div>
       </motion.div>
     </section>
   );
