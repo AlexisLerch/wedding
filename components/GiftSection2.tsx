@@ -144,6 +144,144 @@ export default function GiftsSection() {
           "
         />
       </motion.div>
+      {/* =====================================================
+    GATO - ARRIBA DERECHA
+===================================================== */}
+
+      <motion.div
+        style={{ y: giftsY }}
+        initial={{ opacity: 0, y: 25 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false, amount: 0.2 }}
+        transition={{
+          duration: 0.8,
+          delay: 0.15,
+          ease: [0.22, 1, 0.36, 1],
+        }}
+        className="
+    absolute
+    right-[-2%]
+    top-[205px]
+    z-10
+
+    w-[145px]
+
+    border-[3px]
+    border-[#bcbcb5]
+    bg-[#c5c5bd]
+
+    sm:right-6
+    sm:top-[135px]
+    sm:w-[175px]
+
+    md:right-[7%]
+    md:top-[24%]
+    md:w-[240px]
+
+    lg:right-[8%]
+    lg:top-[25%]
+    lg:w-[280px]
+  "
+      >
+        {/* BARRA DE VENTANA */}
+        <div
+          className="
+      flex
+      h-[18px]
+      items-center
+      gap-[3px]
+      bg-[#c5c5bd]
+      px-[3px]
+
+      md:h-[22px]
+      md:px-[4px]
+    "
+        >
+          <span
+            className="
+        flex
+        h-[12px]
+        w-[12px]
+        items-center
+        justify-center
+        border
+        border-[#888]
+        bg-[#deded8]
+        text-[9px]
+        leading-none
+        text-[#777]
+
+        md:h-[14px]
+        md:w-[14px]
+        md:text-[10px]
+      "
+          >
+            ×
+          </span>
+
+          <span
+            className="
+        flex
+        h-[12px]
+        w-[12px]
+        items-center
+        justify-center
+        border
+        border-[#888]
+        bg-[#deded8]
+        text-[8px]
+        leading-none
+        text-[#777]
+
+        md:h-[14px]
+        md:w-[14px]
+      "
+          >
+            □
+          </span>
+
+          <span
+            className="
+        flex
+        h-[12px]
+        w-[12px]
+        items-center
+        justify-center
+        border
+        border-[#888]
+        bg-[#deded8]
+        text-[8px]
+        leading-none
+        text-[#777]
+
+        md:h-[14px]
+        md:w-[14px]
+      "
+          >
+            —
+          </span>
+        </div>
+
+        {/* FOTO */}
+        <div
+          className="
+      relative
+      aspect-[1.55/1]
+      w-full
+      overflow-hidden
+      border-t-[2px]
+      border-[#9b9b95]
+    "
+        >
+          <Image
+            src="/gatito.jpg"
+            alt="Gatito"
+            fill
+            sizes="(max-width: 640px) 145px, (max-width: 768px) 175px, 280px"
+            className="object-cover"
+          />
+        </div>
+      </motion.div>
 
       {/* =====================================================
           TEXTO CENTRAL
@@ -238,7 +376,7 @@ export default function GiftsSection() {
           <br className="hidden sm:block" />
           pero si deseas hacernos un regalo podrías{" "}
           <br className="hidden md:block" />
-          ayudarnos con dinero.
+          ayudarnos con dinerillo.
         </motion.p>
 
         {/* DATOS */}

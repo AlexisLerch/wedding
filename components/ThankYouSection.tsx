@@ -12,7 +12,10 @@ export default function ThankYouSection() {
     offset: ["start end", "end start"],
   });
 
-  // Movimiento MUY leve y solamente cuando hacés scroll
+  /* =========================================
+     PARALLAX MUY SUAVE
+  ========================================= */
+
   const starsY = useTransform(scrollYProgress, [0, 1], [-8, 8]);
   const pinY = useTransform(scrollYProgress, [0, 1], [7, -7]);
   const heartY = useTransform(scrollYProgress, [0, 1], [-8, 8]);
@@ -57,11 +60,22 @@ export default function ThankYouSection() {
 
         <motion.div
           style={{ y: starsY }}
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, amount: 0.15 }}
+          initial={{
+            opacity: 0,
+            x: -45,
+            scale: 0.94,
+          }}
+          whileInView={{
+            opacity: 1,
+            x: 0,
+            scale: 1,
+          }}
+          viewport={{
+            once: false,
+            amount: 0.15,
+          }}
           transition={{
-            duration: 0.8,
+            duration: 0.85,
             ease: [0.22, 1, 0.36, 1],
           }}
           className="
@@ -94,12 +108,22 @@ export default function ThankYouSection() {
 
         <motion.div
           style={{ y: pinY }}
-          initial={{ opacity: 0, y: -16 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, amount: 0.15 }}
+          initial={{
+            opacity: 0,
+            scale: 0.9,
+          }}
+          whileInView={{
+            opacity: 1,
+            scale: 1,
+          }}
+          viewport={{
+            once: false,
+            amount: 0.15,
+          }}
           transition={{
             duration: 0.8,
-            delay: 0.1,
+            delay: 0.08,
+            ease: [0.22, 1, 0.36, 1],
           }}
           className="
             absolute
@@ -131,12 +155,23 @@ export default function ThankYouSection() {
 
         <motion.div
           style={{ y: heartY }}
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true, amount: 0.15 }}
+          initial={{
+            opacity: 0,
+            scale: 0.82,
+            x: 30,
+          }}
+          whileInView={{
+            opacity: 1,
+            scale: 1,
+            x: 0,
+          }}
+          viewport={{
+            once: false,
+            amount: 0.15,
+          }}
           transition={{
-            duration: 0.85,
-            delay: 0.12,
+            duration: 0.9,
+            delay: 0.1,
             ease: [0.22, 1, 0.36, 1],
           }}
           className="
@@ -169,12 +204,23 @@ export default function ThankYouSection() {
 
         <motion.div
           style={{ y: salchiY }}
-          initial={{ opacity: 0, x: 25 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, amount: 0.15 }}
+          initial={{
+            opacity: 0,
+            x: 45,
+            scale: 0.94,
+          }}
+          whileInView={{
+            opacity: 1,
+            x: 0,
+            scale: 1,
+          }}
+          viewport={{
+            once: false,
+            amount: 0.15,
+          }}
           transition={{
-            duration: 0.85,
-            delay: 0.18,
+            duration: 0.9,
+            delay: 0.15,
             ease: [0.22, 1, 0.36, 1],
           }}
           className="
@@ -206,15 +252,23 @@ export default function ThankYouSection() {
         ========================================= */}
 
         <motion.div
-          initial={{ opacity: 0, y: 22 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{
+            opacity: 0,
+            y: 35,
+            scale: 0.97,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+            scale: 1,
+          }}
           viewport={{
-            once: true,
+            once: false,
             amount: 0.3,
           }}
           transition={{
             duration: 0.9,
-            delay: 0.15,
+            delay: 0.12,
             ease: [0.22, 1, 0.36, 1],
           }}
           className="
@@ -272,6 +326,63 @@ export default function ThankYouSection() {
             ¡Te esperamos para compartir este día tan especial!
           </p>
         </motion.div>
+        {/* ========================================
+    FOTO NOSOTROS
+========================================= */}
+
+        <motion.div
+          initial={{
+            opacity: 0,
+            x: 45,
+            y: 35,
+            scale: 0.92,
+          }}
+          whileInView={{
+            opacity: 1,
+            x: 0,
+            y: 0,
+            scale: 1,
+          }}
+          viewport={{
+            once: false,
+            amount: 0.15,
+          }}
+          transition={{
+            duration: 0.9,
+            delay: 0.2,
+            ease: [0.22, 1, 0.36, 1],
+          }}
+          className="
+    absolute
+    bottom-[3%]
+    right-[-5%]
+    z-30
+    w-[58%]
+
+    sm:right-[3%]
+    sm:w-[45%]
+
+    md:bottom-[-3%]
+    md:right-[5%]
+    md:w-[27%]
+
+    lg:bottom-[-37%]
+    lg:right-[7%]
+    lg:w-[25%]
+  "
+        >
+          <Image
+            src="/nos.png"
+            alt="Nosotros"
+            width={700}
+            height={800}
+            className="
+      h-auto
+      w-full
+      object-contain
+    "
+          />
+        </motion.div>
 
         {/* ========================================
             PILAR
@@ -279,12 +390,23 @@ export default function ThankYouSection() {
 
         <motion.div
           style={{ y: pillarY }}
-          initial={{ opacity: 0, x: -22 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, amount: 0.1 }}
+          initial={{
+            opacity: 0,
+            x: -45,
+            scale: 0.96,
+          }}
+          whileInView={{
+            opacity: 1,
+            x: 0,
+            scale: 1,
+          }}
+          viewport={{
+            once: false,
+            amount: 0.1,
+          }}
           transition={{
-            duration: 0.9,
-            delay: 0.2,
+            duration: 0.95,
+            delay: 0.15,
             ease: [0.22, 1, 0.36, 1],
           }}
           className="
@@ -317,12 +439,24 @@ export default function ThankYouSection() {
 
         <motion.div
           style={{ y: flowersY }}
-          initial={{ opacity: 0, scale: 0.92 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true, amount: 0.1 }}
+          initial={{
+            opacity: 0,
+            scale: 0.82,
+            x: -15,
+          }}
+          whileInView={{
+            opacity: 1,
+            scale: 1,
+            x: 0,
+          }}
+          viewport={{
+            once: false,
+            amount: 0.1,
+          }}
           transition={{
-            duration: 0.8,
-            delay: 0.22,
+            duration: 0.85,
+            delay: 0.18,
+            ease: [0.22, 1, 0.36, 1],
           }}
           className="
             absolute
@@ -354,12 +488,24 @@ export default function ThankYouSection() {
 
         <motion.div
           style={{ y: collar1Y }}
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, amount: 0.1 }}
+          initial={{
+            opacity: 0,
+            y: 25,
+            scale: 0.9,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+            scale: 1,
+          }}
+          viewport={{
+            once: false,
+            amount: 0.1,
+          }}
           transition={{
-            duration: 0.8,
-            delay: 0.25,
+            duration: 0.85,
+            delay: 0.22,
+            ease: [0.22, 1, 0.36, 1],
           }}
           className="
             absolute
@@ -391,12 +537,24 @@ export default function ThankYouSection() {
 
         <motion.div
           style={{ y: collar2Y }}
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, amount: 0.1 }}
+          initial={{
+            opacity: 0,
+            y: 30,
+            scale: 0.92,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+            scale: 1,
+          }}
+          viewport={{
+            once: false,
+            amount: 0.1,
+          }}
           transition={{
-            duration: 0.8,
-            delay: 0.3,
+            duration: 0.9,
+            delay: 0.26,
+            ease: [0.22, 1, 0.36, 1],
           }}
           className="
             absolute

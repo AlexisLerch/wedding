@@ -28,6 +28,47 @@ export default function DressCodeSection() {
           md:min-h-[720px]
         "
       >
+        {/* FOTO DE LOS DOS SALCHICHAS */}
+        <motion.div
+          initial={{ opacity: 0, x: -30, y: 20 }}
+          whileInView={{ opacity: 1, x: 0, y: 0 }}
+          viewport={{ once: false, amount: 0.2 }}
+          transition={{
+            duration: 0.8,
+            ease: [0.22, 1, 0.36, 1],
+          }}
+          className="
+    absolute
+    left-[-8%]
+    top-[6%]
+    z-20
+    w-[48%]
+
+    sm:left-[4%]
+    sm:w-[38%]
+
+    md:left-[6%]
+    md:top-[5%]
+    md:w-[27%]
+
+    lg:left-[4%]
+    lg:top-[5%]
+    lg:w-[25%]
+  "
+        >
+          {/* RECUADRO / PAPEL */}
+          <div>
+            {/* FOTO */}
+            <div className="relative aspect-[4/3] w-full overflow-hidden">
+              <Image
+                src="/salchis3.png"
+                alt="Nuestros salchichas"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </div>
+        </motion.div>
         {/* PELÍCULA */}
         <motion.div
           initial={{ opacity: 0, y: 35 }}
